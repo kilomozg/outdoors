@@ -46,7 +46,7 @@ body {
 
 .text-box {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -54,6 +54,8 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  backface-visibility: hidden; /* Чтобы анимация не "дрожала" */
 }
 
 .heading-primary-main {
@@ -61,11 +63,57 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveInLeft; /* название keyframes анимации */
+  animation-duration: 2s; /* Продолжительность анимации */
+  animation-timing-function: ease-out;
+
+  /* Отложенная анимация
+  animation-delay: 3s;
+  */
+  
+  /* Кол-во повторов анимации
+  animation-iteration-count: 3;
+  */
 }
 
 .heading-primary-sub {
   display: block;
   font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 15px;
+  font-weight: 400;
+  letter-spacing: 12px;
+
+  animation: moveInRight 2s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+
+  80% {
+    transform: translateX(50px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(70px);
+  }
+
+  80% {
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
