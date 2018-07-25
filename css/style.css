@@ -30,6 +30,7 @@ body {
     url(../img/main.png);
   background-size: cover;
   background-position: top;
+  position: relative;
 
   clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
 }
